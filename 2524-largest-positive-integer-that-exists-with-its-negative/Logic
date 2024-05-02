@@ -1,0 +1,6 @@
+1. Created a hashset and inserted all elements into it
+2. Initialised a max element as -1
+3. Check the hashmap and the array if a larger number exists which has a adjacent negative/positive in the hashmap and that is your answer :)
+
+
+I INITIALLY USED 2 POINTERS THAT IS WRONG 
