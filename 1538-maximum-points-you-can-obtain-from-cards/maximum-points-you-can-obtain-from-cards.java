@@ -13,10 +13,12 @@ class Solution {
 
         // Calculate the sums by sliding the window from left to right
         int RightSum = 0;
-        for (int i = 0; i < k; i++) {
-            RightSum += cardPoints[n - 1 - i]; // Add from the right side
-            LeftSum -= cardPoints[k - 1 - i]; // Remove from the left side
+        int RightIndex = n - 1;
+        for (int i = k - 1; i >= 0; i--) {
+            LeftSum = LeftSum - cardPoints[i]; // Remove from the left side
+            RightSum = RightSum + cardPoints[RightIndex]; //Add to right
             maxSum = Math.max(maxSum, LeftSum + RightSum);
+            RightIndex--;
         }
 
         return maxSum;
