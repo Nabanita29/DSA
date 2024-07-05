@@ -1,17 +1,17 @@
 class Solution {
     public boolean rotateString(String s, String goal) {
-        int index = -1;
-        if(s.length() != goal.length()){
-            return false;
+
+        if (s.length() != goal.length()) {
+            return false; 
         }
-        else{
-            String test = s.concat(s);
-            if(test.contains(goal)){
-                return true;
-            }
-            else{
-                return false;
+        // Try all possible rotations of s
+        for (int i = 0; i < s.length(); i++) {
+            String rotated = s.substring(i) + s.substring(0, i); 
+            if (rotated.equals(goal)) {
+                return true;  // Return true if a match is found
             }
         }
+        return false;  
+        
     }
 }
