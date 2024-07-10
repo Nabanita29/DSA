@@ -1,26 +1,28 @@
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int left = m - 1;
-        int right = n - 1;
-        int index = m + n - 1;
-        // Start from end and keep filling the elements
-        while (left >= 0 && right >= 0){
-            if(nums2[right] > nums1[left]){
-                nums1[index] = nums2[right];
-                right--;
+        int low = m - 1; 
+        int high = n - 1;
+        int index = m + n - 1; //Last place in nums1
+
+        while(high >= 0 && low >= 0){ 
+            // Start from the end compare nums2 with nums1
+            if(nums2[high] > nums1[low]){
+                nums1[index] = nums2[high];
+                high--;
             } else {
-                nums1[index] = nums1[left];
-                left--;
+                nums1[index] = nums1[low];
+                low--;
             }
             index--;
         }
-        // If there are remaining elements in nums2 copy them
-        while (right >= 0) {
-            nums1[index] = nums2[right];
+
+        while(high >= 0){
+            nums1[index] = nums2[high];
+            high--;
             index--;
-            right--;
         }
-        
-        
+
+
+      
     }
 }
