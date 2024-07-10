@@ -5,16 +5,18 @@ class Solution {
         int right = nums.length - 1;
 
         while (left <= right){ 
-            if (nums[right] == val) right--;
-            else if (nums[left] != val) left++;
-            else if (nums[left] == val && nums[right] != val) {
+            if(nums[right] == val) right--; 
+            //We need right to be at a place where the element is not val so we can switch
+            else if(nums[left] != val) left++;
+            //We need to make sure left is at val so we can switch
+            else{
                 int temp = nums[left];
-                nums[left] = nums[right]; // Corrected the swap logic
+                nums[left] = nums[right];
                 nums[right] = temp;
-                left++; // Move left pointer after swapping
-                right--; // Move right pointer after swapping
+                left++;
+                right--;
             }
         }
-        return left; // Return the correct count
+        return left;
     }
 }
