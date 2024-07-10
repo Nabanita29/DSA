@@ -3,14 +3,16 @@ class Solution {
         if (nums.length == 0) return 0; // Handle edge case of empty array
         
         int index = 1; // Start from the second position for unique elements
-        int left = 0; // Start from the first element
+        int left = 1; // Start from the second element
         
-        for (int right = 1; right < nums.length; right++) {
-            if (nums[right] != nums[left]) {
-                left++; // Move the left pointer to the next unique element
-                nums[index] = nums[right]; // Place the unique element at the index
+        while (left < nums.length) {
+            // If current element is not equal to the element at index - 1,
+            // it means we found a new unique element
+            if (nums[left] != nums[index - 1]) {
+                nums[index] = nums[left]; // Assign the unique element to the next index
                 index++; // Increment the index for the next unique element
             }
+            left++; // Move to the next element in the array
         }
         
         return index; // The index represents the number of unique elements
