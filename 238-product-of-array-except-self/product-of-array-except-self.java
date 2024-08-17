@@ -2,7 +2,8 @@ class Solution {
     public int[] productExceptSelf(int[] nums) {
 
         int n = nums.length;
-        
+
+         // Initialize the prefix array to store products of elements to the right
         int[] prefix = new int[n];
         prefix[n - 1] = 1;
         for(int i = n - 2; i >= 0; i--){
