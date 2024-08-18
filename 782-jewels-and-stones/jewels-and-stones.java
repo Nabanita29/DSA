@@ -1,24 +1,17 @@
-import java.util.HashSet;
-import java.util.Set;
-
 class Solution {
     public int numJewelsInStones(String jewels, String stones) {
-        Set<Character> jewelSet = new HashSet<>();
+        int length = 0;
+        Set<Character> frequence = new HashSet<>();
 
-        // Add all characters from jewels to the set
-        for (char jewel : jewels.toCharArray()) {
-            jewelSet.add(jewel);
+        for(int i = 0; i < jewels.length(); i++){
+            frequence.add(jewels.charAt(i));
         }
 
-        int count = 0;
-
-        // Check each stone to see if it is a jewel
-        for (char stone : stones.toCharArray()) {
-            if (jewelSet.contains(stone)) {
-                count++;
+        for(int j = 0; j < stones.length(); j++){
+            if(frequence.contains(stones.charAt(j))){
+                length++;
             }
         }
-
-        return count;
+        return length;
     }
 }
