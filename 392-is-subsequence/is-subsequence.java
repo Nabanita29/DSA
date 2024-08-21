@@ -5,17 +5,13 @@ class Solution {
         int high = 0;
 
         while(low < s.length() && high < t.length()){
-            if(s.charAt(low) == t.charAt(high)){
+            if(s.charAt(low) != t.charAt(high)){
+                high++;
+            } else {
                 low++;
                 high++;
             }
-            else {
-                high++;
-            }
-          
         }
-
         return low == s.length();
-
     }
 }
