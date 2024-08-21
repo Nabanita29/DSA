@@ -1,18 +1,25 @@
 class Solution {
     public String reverseWords(String s) {
+        // Convert the input string to a StringBuilder for easier modification
         StringBuilder sb = new StringBuilder(s);
+
+        // Initialize the start of the first word
         int start = 0;
-        for(int i = 0; i <= sb.length(); i++){  
-            if(i == sb.length() || sb.charAt(i) == ' '){
-                int end = i - 1;
-                reverse(sb, start, end);
-                start = i + 1;
+
+        // Iterate through the string to find spaces that denote word boundaries
+        for (int i = 0; i <= sb.length(); i++) {
+            // When a space or the end of the string is found, reverse the word
+            if (i == sb.length() || sb.charAt(i) == ' ') {
+                int end = i - 1; // Set end to the last character of the word
+                reverse(sb, start, end); // Reverse the word between start and end
+                start = i + 1; // Move start to the beginning of the next word
             }
-            
         }
+
+        // Convert the StringBuilder back to a string and return it
         return sb.toString();
     }
-    
+
     // Helper function to reverse characters in the StringBuilder 
     // between indices start and end
     private void reverse(StringBuilder sb, int start, int end) {
