@@ -7,9 +7,9 @@ class Solution {
         int high = sb.length() - 1;
 
         while (low <= high) {
-            if (!isAlphabet(sb.charAt(low))) {
+            if (!Character.isLetter(sb.charAt(low))) {
                 low++;
-            } else if (!isAlphabet(sb.charAt(high))) {
+            } else if (!Character.isLetter(sb.charAt(high))) {
                 high--;
             } else {
                 char temp = sb.charAt(low);
@@ -22,8 +22,4 @@ class Solution {
         return sb.toString();
     }
 
-    // Method to check if a character is an alphabet letter
-    private boolean isAlphabet(char c) {
-        return Character.isLetter(c);
-    }
 }
