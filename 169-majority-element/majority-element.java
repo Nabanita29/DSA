@@ -18,3 +18,6 @@ class Solution {
         return majorityElement;
     }
 }
+
+// TC = O(N log N) + O(N) traverse in map
+// SC = O(N)
