@@ -1,23 +1,34 @@
 class Solution {
     public int majorityElement(int[] nums) {
-        int x = nums.length;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for(int i = 0 ; i < x ; i++){
-            map.put(nums[i], map.getOrDefault(nums[i],0) + 1);
-        }
+        int n = nums.length;    
+        int element = 0;
+        int count = 0;
 
-        int majorityElement = nums[0];
-        int max = 0;
-        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
-            if(entry.getValue() > x/2 && entry.getValue() > max){
-                max = entry.getValue();
-                majorityElement = entry.getKey();
+        for(int i = 0; i < nums.length; i++){
+            if(count == 0){
+                count = 1;
+                element = nums[i];
+            }
+            else if(element == nums[i]){
+                count++;
+            } else {
+                count--;
             }
         }
 
-        return majorityElement;
+        int count1 = 0;
+        for (int num : nums){
+            if(num == element){
+                count++;
+            }
+        }
+
+        int major = n / 2;
+        if(count > major){
+            return element;
+        } else {
+            return -1;
+        }
+        
     }
 }
-
-// TC = O(N log N) + O(N) traverse in map
-// SC = O(N)
